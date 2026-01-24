@@ -15,6 +15,7 @@ Portfolio profesional de Alejandro Espejo, Product Owner & Diseñador UX/UI espe
 - 💬 Carrusel de testimonios de clientes
 - 🎨 Galería de proyectos destacados
 - 📊 Sección de competencias clave
+- 📧 Formulario de contacto funcional con EmailJS
 - 🌙 Tema oscuro premium
 
 ## 🛠️ Tecnologías
@@ -22,6 +23,7 @@ Portfolio profesional de Alejandro Espejo, Product Owner & Diseñador UX/UI espe
 - **HTML5**: Estructura semántica
 - **CSS3**: Tailwind CSS + Custom styles
 - **JavaScript**: Vanilla JS (componentes interactivos)
+- **EmailJS**: Servicio de envío de emails sin backend
 - **Hosting**: GitHub Pages
 - **CI/CD**: GitHub Actions
 
