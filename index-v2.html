@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alejandro Espejo - UX/UI Designer Portfolio">
+    <meta name="author" content="Alejandro Espejo">
+    <title>Alejandro Espejo - UX/UI Designer</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-80 bg-white p-12 flex flex-col fixed h-screen">
+            <!-- Profile Photo -->
+            <div class="mb-8">
+                <img src="images/profile/alejandro-espejo.png" alt="Alejandro Espejo"
+                    class="w-48 h-48 rounded-sm object-cover grayscale">
+            </div>
+
+            <!-- Name & Title -->
+            <div class="mb-12">
+                <h1 class="text-3xl font-light mb-2">Alejandro Espejo</h1>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    I'm a UX designer. I'm passionate about creating usable digital products.
+                    I have worked with incredibly talented people across different companies.
+                </p>
+            </div>
+
+            <!-- Social Link -->
+            <div class="mb-auto">
+                <a href="https://www.linkedin.com/in/alejandroesgo/" target="_blank"
+                    class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="mt-12">
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Home</a>
+                    </li>
+                    <li><a href="#about" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Resume</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 ml-80 p-12">
+            <!-- Projects Grid -->
+            <div id="home" class="grid grid-cols-2 gap-8 max-w-6xl">
+                <!-- Project 1 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project1.jpg" alt="UI Design for ELITEGYM Website"
+                        class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">App de Banca Móvil</h3>
+                        <p class="text-sm text-gray-600">Diseño UX/UI para aplicación bancaria móvil</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project2.jpg" alt="E-commerce Platform" class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">Plataforma E-commerce</h3>
+                        <p class="text-sm text-gray-600">Experiencia de compra optimizada</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project3.jpg" alt="Dashboard Analytics" class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">Dashboard de Analíticas</h3>
+                        <p class="text-sm text-gray-600">Visualización de datos complejos</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project4.jpg" alt="Health App" class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">App de Salud y Fitness</h3>
+                        <p class="text-sm text-gray-600">Tracking de hábitos saludables</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project5.jpg" alt="SaaS Platform" class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">Plataforma SaaS</h3>
+                        <p class="text-sm text-gray-600">Gestión de proyectos para equipos remotos</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="project-card bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <img src="images/projects/project6.jpg" alt="Design System" class="project-image w-full">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium mb-2">Sistema de Diseño</h3>
+                        <p class="text-sm text-gray-600">Componentes reutilizables escalables</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section id="about" class="max-w-4xl mt-24 mb-24">
+                <h2 class="text-3xl font-light mb-8">Sobre Mí</h2>
+                <div class="prose prose-gray">
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Soy un diseñador UX/UI con más de 5 años de experiencia diseñando productos digitales
+                        que impactan a miles de usuarios. Mi enfoque está en crear experiencias memorables
+                        centradas en el usuario.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        He trabajado con equipos multidisciplinarios en Los Portales y otras empresas,
+                        liderando proyectos desde la investigación inicial hasta la implementación final.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Mis habilidades incluyen diseño de interfaz, investigación de usuarios, prototipado,
+                        y gestión de productos usando metodologías ágiles.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="max-w-4xl mb-24">
+                <h2 class="text-3xl font-light mb-8">Contacto</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500 mb-1">Email</h3>
+                        <a href="mailto:alejandro_espejo_g@hotmail.com"
+                            class="text-gray-900 hover:text-gray-600 transition-colors">
+                            alejandro_espejo_g@hotmail.com
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500 mb-1">LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/alejandroesgo/" target="_blank"
+                            class="text-gray-900 hover:text-gray-600 transition-colors">
+                            linkedin.com/in/alejandroesgo
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500 mb-1">GitHub</h3>
+                        <a href="https://github.com/MazeMirror" target="_blank"
+                            class="text-gray-900 hover:text-gray-600 transition-colors">
+                            github.com/MazeMirror
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500 mb-1">Instagram</h3>
+                        <a href="https://www.instagram.com/alejand1328" target="_blank"
+                            class="text-gray-900 hover:text-gray-600 transition-colors">
+                            @alejand1328
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="max-w-4xl text-sm text-gray-500 border-t border-gray-200 pt-8">
+                <p>&copy; 2026 Alejandro Espejo. Todos los derechos reservados.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Responsive Mobile Menu (Hidden by default, shown on small screens) -->
+    <div class="lg:hidden fixed top-0 left-0 right-0 bg-white shadow-sm z-50 p-4">
+        <div class="flex items-center justify-between">
+            <h1 class="text-xl font-medium">Alejandro Espejo</h1>
+            <button id="mobileMenuBtn" class="p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
