@@ -45,7 +45,7 @@ GRAVITY/
 
 ## 📫 Contacto
 
-- **Email**: alejandro.espejo@example.com
+- **Email**: alejandro_espejo_g@hotmail.com
 - **LinkedIn**: [linkedin.com/in/alejandrospejo](https://linkedin.com/in/alejandrospejo)
 - **GitHub**: [github.com/MazeMirror](https://github.com/MazeMirror)
 
