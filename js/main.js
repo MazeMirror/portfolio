@@ -13,54 +13,54 @@ const mobileMenu = document.getElementById('mobileMenu');
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('navbar-scrolled');
-    } else {
-        navbar.classList.remove('navbar-scrolled');
-    }
+  if (window.scrollY > 50) {
+    navbar.classList.add('navbar-scrolled');
+  } else {
+    navbar.classList.remove('navbar-scrolled');
+  }
 });
 
 // Mobile menu toggle
 mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+  mobileMenu.classList.toggle('hidden');
 
-    // Animate hamburger
-    const spans = mobileMenuBtn.querySelectorAll('span');
-    if (!mobileMenu.classList.contains('hidden')) {
-        spans[0].style.transform = 'rotate(45deg) translateY(8px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
-    } else {
-        spans[0].style.transform = '';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = '';
-    }
+  // Animate hamburger
+  const spans = mobileMenuBtn.querySelectorAll('span');
+  if (!mobileMenu.classList.contains('hidden')) {
+    spans[0].style.transform = 'rotate(45deg) translateY(8px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = '';
+  }
 });
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans[0].style.transform = '';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = '';
-    });
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    const spans = mobileMenuBtn.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = '';
+  });
 });
 
 // Smooth scroll for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
 
 // ===================================
@@ -68,26 +68,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===================================
 
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            // For timeline cards, add staggered delay
-            if (entry.target.classList.contains('timeline-card')) {
-                const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
-                entry.target.style.transitionDelay = `${index * 0.1}s`;
-            }
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      // For timeline cards, add staggered delay
+      if (entry.target.classList.contains('timeline-card')) {
+        const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+        entry.target.style.transitionDelay = `${index * 0.1}s`;
+      }
+    }
+  });
 }, observerOptions);
 
 // Observe all scroll-reveal elements
 document.querySelectorAll('.scroll-reveal').forEach(element => {
-    observer.observe(element);
+  observer.observe(element);
 });
 
 // ===================================
@@ -100,11 +100,11 @@ const projectCards = document.querySelectorAll('[data-project]');
 
 // Project data
 const projectsData = {
-    1: {
-        title: "App de Banca Móvil",
-        tags: ["UX/UI Design", "Mobile App", "FinTech"],
-        description: "Rediseño completo de la experiencia de usuario para una aplicación bancaria, mejorando la tasa de conversión en un 45%.",
-        details: `
+  1: {
+    title: "App de Banca Móvil",
+    tags: ["UX/UI Design", "Mobile App", "FinTech"],
+    description: "Rediseño completo de la experiencia de usuario para una aplicación bancaria, mejorando la tasa de conversión en un 45%.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Lideré el rediseño completo de una aplicación de banca móvil para modernizar la experiencia de usuario y mejorar las métricas de engagement.</p>
       
@@ -126,12 +126,12 @@ const projectsData = {
         <li>35% aumento en usuarios activos mensuales</li>
       </ul>
     `
-    },
-    2: {
-        title: "Plataforma E-commerce",
-        tags: ["Product Design", "E-commerce", "Web"],
-        description: "Diseño y estrategia de producto para una plataforma de comercio electrónico con enfoque en conversión y experiencia de compra.",
-        details: `
+  },
+  2: {
+    title: "Plataforma E-commerce",
+    tags: ["Product Design", "E-commerce", "Web"],
+    description: "Diseño y estrategia de producto para una plataforma de comercio electrónico con enfoque en conversión y experiencia de compra.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Diseñé desde cero una plataforma de e-commerce enfocada en maximizar la conversión y ofrecer una experiencia de compra fluida y memorable.</p>
       
@@ -151,12 +151,12 @@ const projectsData = {
         <li>Aumento del 70% en compras completadas</li>
       </ul>
     `
-    },
-    3: {
-        title: "Dashboard de Analíticas",
-        tags: ["Dashboard", "Data Visualization", "SaaS"],
-        description: "Sistema de visualización de datos complejos para equipos de marketing, simplificando la toma de decisiones basadas en datos.",
-        details: `
+  },
+  3: {
+    title: "Dashboard de Analíticas",
+    tags: ["Dashboard", "Data Visualization", "SaaS"],
+    description: "Sistema de visualización de datos complejos para equipos de marketing, simplificando la toma de decisiones basadas en datos.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Creé un dashboard intuitivo que transforma datos complejos en insights accionables para equipos de marketing digital.</p>
       
@@ -176,12 +176,12 @@ const projectsData = {
         <li>Adoptado por 500+ empresas</li>
       </ul>
     `
-    },
-    4: {
-        title: "App de Salud y Fitness",
-        tags: ["Mobile App", "Health Tech", "Gamification"],
-        description: "Aplicación mobile para tracking de hábitos saludables con gamificación y comunidad integrada.",
-        details: `
+  },
+  4: {
+    title: "App de Salud y Fitness",
+    tags: ["Mobile App", "Health Tech", "Gamification"],
+    description: "Aplicación mobile para tracking de hábitos saludables con gamificación y comunidad integrada.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Diseñé una app de salud que combina tracking de hábitos con elementos de gamificación y comunidad para mantener a los usuarios motivados.</p>
       
@@ -201,12 +201,12 @@ const projectsData = {
         <li>4.7/5 rating promedio</li>
       </ul>
     `
-    },
-    5: {
-        title: "Plataforma SaaS",
-        tags: ["SaaS", "B2B", "Collaboration"],
-        description: "Diseño de sistema end-to-end para herramienta de gestión de proyectos orientada a equipos remotos.",
-        details: `
+  },
+  5: {
+    title: "Plataforma SaaS",
+    tags: ["SaaS", "B2B", "Collaboration"],
+    description: "Diseño de sistema end-to-end para herramienta de gestión de proyectos orientada a equipos remotos.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Diseñé una plataforma completa de gestión de proyectos optimizada para la colaboración de equipos distribuidos.</p>
       
@@ -226,12 +226,12 @@ const projectsData = {
         <li>Adoptado por 1000+ equipos</li>
       </ul>
     `
-    },
-    6: {
-        title: "Sistema de Diseño",
-        tags: ["Design System", "UI Kit", "Component Library"],
-        description: "Creación de design system escalable con componentes reutilizables para acelerar el desarrollo de productos.",
-        details: `
+  },
+  6: {
+    title: "Sistema de Diseño",
+    tags: ["Design System", "UI Kit", "Component Library"],
+    description: "Creación de design system escalable con componentes reutilizables para acelerar el desarrollo de productos.",
+    details: `
       <h3 class="text-2xl font-bold mb-4">📋 Descripción del Proyecto</h3>
       <p class="mb-4">Creé un design system completo desde cero para estandarizar y acelerar el desarrollo de productos en toda la organización.</p>
       
@@ -252,82 +252,117 @@ const projectsData = {
         <li>Adoptado por 5 equipos de producto</li>
       </ul>
     `
-    }
+  }
 };
 
 // Open modal
 projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const projectId = card.dataset.project;
-        const project = projectsData[projectId];
+  card.addEventListener('click', () => {
+    const projectId = card.dataset.project;
+    const project = projectsData[projectId];
 
-        // Update modal content
-        document.getElementById('modalTitle').textContent = project.title;
-        document.getElementById('modalDescription').textContent = project.description;
-        document.getElementById('modalDetails').innerHTML = project.details;
+    // Update modal content
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalDescription').textContent = project.description;
+    document.getElementById('modalDetails').innerHTML = project.details;
 
-        // Update tags
-        const modalTags = document.getElementById('modalTags');
-        modalTags.innerHTML = project.tags.map(tag =>
-            `<span class="px-3 py-1 text-sm rounded-full glass border border-accent-purple/30 text-accent-purple">${tag}</span>`
-        ).join('');
+    // Update tags
+    const modalTags = document.getElementById('modalTags');
+    modalTags.innerHTML = project.tags.map(tag =>
+      `<span class="px-3 py-1 text-sm rounded-full glass border border-accent-purple/30 text-accent-purple">${tag}</span>`
+    ).join('');
 
-        // Update image
-        const projectImg = card.querySelector('img');
-        const modalImg = document.querySelector('#modalImage img');
-        modalImg.src = projectImg.src;
-        modalImg.alt = project.title;
+    // Update image
+    const projectImg = card.querySelector('img');
+    const modalImg = document.querySelector('#modalImage img');
+    modalImg.src = projectImg.src;
+    modalImg.alt = project.title;
 
-        // Show modal
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-    });
+    // Show modal
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  });
 });
 
 // Close modal
 modalClose.addEventListener('click', closeModal);
 
 modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
+  if (e.target === modal) {
+    closeModal();
+  }
 });
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        closeModal();
-    }
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
 });
 
 function closeModal() {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = 'auto';
 }
 
 // ===================================
-// CONTACT FORM
+// CONTACT FORM WITH EMAILJS
 // ===================================
 
 const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+  // Disable button and show loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+  submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-    if (name && email && message) {
-        // Here you would typically send the form data to a server
-        // For now, we'll just show an alert
-        alert(`¡Gracias por tu mensaje, ${name}! Te contactaré pronto.`);
-        contactForm.reset();
-    } else {
-        alert('Por favor completa todos los campos.');
-    }
+  // Hide previous messages
+  formMessage.classList.add('hidden');
+
+  try {
+    // EmailJS Configuration
+    await emailjs.sendForm(
+      'service_hoxqyrj',      // Service ID
+      'template_54ka0af',     // Template ID
+      contactForm
+    );
+
+    // Success message
+    showMessage('¡Mensaje enviado exitosamente! Te contactaré pronto. 🎉', 'success');
+    contactForm.reset();
+
+  } catch (error) {
+    console.error('Error al enviar el formulario:', error);
+    showMessage('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo o contáctame directamente.', 'error');
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar Mensaje';
+    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+  }
 });
+
+function showMessage(text, type) {
+  formMessage.textContent = text;
+  formMessage.classList.remove('hidden', 'bg-green-500/20', 'bg-red-500/20', 'text-green-300', 'text-red-300');
+
+  if (type === 'success') {
+    formMessage.classList.add('bg-green-500/20', 'text-green-300', 'border', 'border-green-500/30');
+  } else {
+    formMessage.classList.add('bg-red-500/20', 'text-red-300', 'border', 'border-red-500/30');
+  }
+
+  // Auto-hide after 5 seconds
+  setTimeout(() => {
+    formMessage.classList.add('hidden');
+  }, 5000);
+}
 
 // ===================================
 // UTILITIES
