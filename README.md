@@ -43,49 +43,6 @@ GRAVITY/
     └── workflows/         # GitHub Actions CI/CD
 ```
 
-## 💻 Desarrollo Local
-
-1. Clona el repositorio:
-```bash
-git clone https://github.com/MazeMirror/portfolio.git
-cd portfolio
-```
-
-2. Abre `index.html` en tu navegador o usa Live Server
-
-3. Para desarrollo, trabaja en la rama `dev`:
-```bash
-git checkout dev
-```
-
-## 🔄 Workflow de Desarrollo
-
-1. **Desarrollo**: Trabaja en rama `dev`
-```bash
-git checkout dev
-git add .
-git commit -m "descripción"
-git push origin dev
-```
-
-2. **Producción**: Merge a `main` cuando esté listo
-```bash
-git checkout main
-git merge dev
-git push origin main
-```
-
-## 📝 Personalización
-
-### Actualizar Experiencias Laborales
-Edita el array `experiences` en `js/components.js`
-
-### Actualizar Testimonios
-Edita el array `testimonials` en `js/components.js`
-
-### Actualizar Proyectos
-Modifica las tarjetas en `index.html` sección `#projects`
-
 ## 📫 Contacto
 
 - **Email**: alejandro.espejo@example.com
@@ -94,7 +51,7 @@ Modifica las tarjetas en `index.html` sección `#projects`
 
 ## 📄 Licencia
 
-© 2025 Alejandro Espejo. Todos los derechos reservados.
+© 2026 Alejandro Espejo. Todos los derechos reservados.
 
 ---
 
