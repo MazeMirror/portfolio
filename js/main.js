@@ -312,7 +312,7 @@ function closeModal() {
 
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
-const formMessage = document.getElementById('formMessage');
+const successModal = document.getElementById('successModal');
 
 // Handle form submission with AJAX (no page reload)
 contactForm.addEventListener('submit', async (e) => {
@@ -322,9 +322,6 @@ contactForm.addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
   submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
-
-  // Hide previous messages
-  formMessage.classList.add('hidden');
 
   try {
     // Prepare form data
@@ -338,17 +335,17 @@ contactForm.addEventListener('submit', async (e) => {
     });
 
     if (response.ok) {
-      // Success
-      showMessage('✅ ¡Mensaje enviado exitosamente! Te contactaré pronto.', 'success');
+      // Success - Show modal popup
+      showSuccessModal();
       contactForm.reset();
     } else {
       // Error from server
-      showMessage('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+      alert('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
     }
   } catch (error) {
     // Network error
     console.error('Error al enviar el formulario:', error);
-    showMessage('❌ Error de conexión. Por favor verifica tu internet e intenta de nuevo.', 'error');
+    alert('❌ Error de conexión. Por favor verifica tu internet e intenta de nuevo.');
   } finally {
     // Re-enable button
     submitBtn.disabled = false;
@@ -357,21 +354,24 @@ contactForm.addEventListener('submit', async (e) => {
   }
 });
 
-function showMessage(text, type) {
-  formMessage.textContent = text;
-  formMessage.classList.remove('hidden', 'bg-green-500/20', 'bg-red-500/20', 'text-green-300', 'text-red-300');
-
-  if (type === 'success') {
-    formMessage.classList.add('bg-green-500/20', 'text-green-300', 'border', 'border-green-500/30');
-  } else {
-    formMessage.classList.add('bg-red-500/20', 'text-red-300', 'border', 'border-red-500/30');
-  }
-
-  // Auto-hide after 5 seconds
-  setTimeout(() => {
-    formMessage.classList.add('hidden');
-  }, 5000);
+// Show success modal
+function showSuccessModal() {
+  successModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; // Prevent background scroll
 }
+
+// Close success modal
+function closeSuccessModal() {
+  successModal.classList.add('hidden');
+  document.body.style.overflow = 'auto'; // Restore scroll
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !successModal.classList.contains('hidden')) {
+    closeSuccessModal();
+  }
+});
 
 // ===================================
 // UTILITIES
