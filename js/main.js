@@ -307,17 +307,16 @@ function closeModal() {
 }
 
 // ===================================
-// CONTACT FORM WITH EMAILJS
+// CONTACT FORM WITH NETLIFY FORMS
 // ===================================
 
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  // Disable button and show loading state
+// Netlify handles the submission, but we add UI feedback
+contactForm.addEventListener('submit', (e) => {
+  // Show loading state
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
   submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
@@ -325,27 +324,8 @@ contactForm.addEventListener('submit', async (e) => {
   // Hide previous messages
   formMessage.classList.add('hidden');
 
-  try {
-    // EmailJS Configuration
-    await emailjs.sendForm(
-      'service_hoxqyrj',      // Service ID
-      'template_54ka0af',     // Template ID
-      contactForm
-    );
-
-    // Success message
-    showMessage('¡Mensaje enviado exitosamente! Te contactaré pronto. 🎉', 'success');
-    contactForm.reset();
-
-  } catch (error) {
-    console.error('Error al enviar el formulario:', error);
-    showMessage('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo o contáctame directamente.', 'error');
-  } finally {
-    // Re-enable button
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Enviar Mensaje';
-    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
-  }
+  // Note: Netlify will handle the actual form submission and redirect
+  // You can customize the success page in Netlify dashboard or add a success message here
 });
 
 function showMessage(text, type) {
