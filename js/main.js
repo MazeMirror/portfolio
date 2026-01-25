@@ -314,22 +314,10 @@ const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formMessage = document.getElementById('formMessage');
 
-// Show success message if redirected from Netlify after form submission
-if (window.location.hash === '#contact-success') {
-  const successMsg = document.getElementById('contact-success');
-  if (successMsg) {
-    successMsg.classList.remove('hidden');
-    // Scroll to the success message
-    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // Optionally clear the hash after showing the message
-    setTimeout(() => {
-      history.replaceState(null, null, ' ');
-    }, 100);
-  }
-}
+// Handle form submission with AJAX (no page reload)
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Prevent default form submission (page reload)
 
-// Netlify handles the submission, but we add UI feedback
-contactForm.addEventListener('submit', (e) => {
   // Show loading state
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
@@ -338,8 +326,35 @@ contactForm.addEventListener('submit', (e) => {
   // Hide previous messages
   formMessage.classList.add('hidden');
 
-  // Note: Netlify will handle the actual form submission and redirect
-  // After submission, it will redirect back to /#contact-success
+  try {
+    // Prepare form data
+    const formData = new FormData(contactForm);
+
+    // Submit to Netlify via fetch
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    if (response.ok) {
+      // Success
+      showMessage('✅ ¡Mensaje enviado exitosamente! Te contactaré pronto.', 'success');
+      contactForm.reset();
+    } else {
+      // Error from server
+      showMessage('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+    }
+  } catch (error) {
+    // Network error
+    console.error('Error al enviar el formulario:', error);
+    showMessage('❌ Error de conexión. Por favor verifica tu internet e intenta de nuevo.', 'error');
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar Mensaje';
+    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+  }
 });
 
 function showMessage(text, type) {
