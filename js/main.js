@@ -314,6 +314,20 @@ const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const formMessage = document.getElementById('formMessage');
 
+// Show success message if redirected from Netlify after form submission
+if (window.location.hash === '#contact-success') {
+  const successMsg = document.getElementById('contact-success');
+  if (successMsg) {
+    successMsg.classList.remove('hidden');
+    // Scroll to the success message
+    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Optionally clear the hash after showing the message
+    setTimeout(() => {
+      history.replaceState(null, null, ' ');
+    }, 100);
+  }
+}
+
 // Netlify handles the submission, but we add UI feedback
 contactForm.addEventListener('submit', (e) => {
   // Show loading state
@@ -325,7 +339,7 @@ contactForm.addEventListener('submit', (e) => {
   formMessage.classList.add('hidden');
 
   // Note: Netlify will handle the actual form submission and redirect
-  // You can customize the success page in Netlify dashboard or add a success message here
+  // After submission, it will redirect back to /#contact-success
 });
 
 function showMessage(text, type) {

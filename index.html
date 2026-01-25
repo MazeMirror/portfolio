@@ -679,8 +679,8 @@
             </div>
 
             <!-- Contact Form -->
-            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
-                class="max-w-2xl mx-auto" id="contactForm">
+            <form name="contact" method="POST" action="/index.html#contact-success" data-netlify="true"
+                data-netlify-honeypot="bot-field" class="max-w-2xl mx-auto" id="contactForm">
                 <!-- Hidden fields for Netlify -->
                 <input type="hidden" name="form-name" value="contact">
 
@@ -725,6 +725,12 @@
 
                     <!-- Success/Error Messages -->
                     <div id="formMessage" class="hidden p-4 rounded-lg text-center font-medium"></div>
+
+                    <!-- Success message for Netlify redirect -->
+                    <div id="contact-success"
+                        class="hidden p-4 bg-green-500/20 text-green-300 border border-green-500/30 rounded-lg text-center font-medium">
+                        ✅ ¡Mensaje enviado exitosamente! Te contactaré pronto.
+                    </div>
                 </div>
             </form>
         </div>
