@@ -324,14 +324,17 @@ contactForm.addEventListener('submit', async (e) => {
   submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
   try {
-    // Prepare form data
+    // Prepare form data - Netlify requires form-name to be included
     const formData = new FormData(contactForm);
+
+    // Encode data for Netlify
+    const data = new URLSearchParams(formData).toString();
 
     // Submit to Netlify via fetch
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      body: data
     });
 
     if (response.ok) {
@@ -340,6 +343,7 @@ contactForm.addEventListener('submit', async (e) => {
       contactForm.reset();
     } else {
       // Error from server
+      console.error('Server error:', response.status, response.statusText);
       alert('❌ Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
     }
   } catch (error) {
