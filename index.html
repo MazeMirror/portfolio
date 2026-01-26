@@ -4,6 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics - Auto-detect environment -->
+    <script>
+        // Detect deployment environment and load appropriate Google Analytics
+        const hostname = window.location.hostname;
+        let gaId;
+
+        if (hostname.includes('netlify.app')) {
+            // Netlify deployment
+            gaId = 'G-411SL5FL4T';
+        } else if (hostname.includes('github.io')) {
+            // GitHub Pages deployment
+            gaId = 'G-KPB3M5CK6L';
+        }
+
+        // Load Google Analytics if we have an ID (skip for localhost)
+        if (gaId) {
+            // Load gtag.js script
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+            document.head.appendChild(script);
+
+            // Initialize dataLayer and gtag
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', gaId);
+        }
+    </script>
     <meta name="description"
         content="Alejandro Espejo - Portfolio de diseñador UX/UI, Product Owner y Project Manager con más de 5 años de experiencia diseñando y gestionando productos tecnológicos y digitales">
     <meta name="keywords"
