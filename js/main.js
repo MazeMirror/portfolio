@@ -378,6 +378,36 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===================================
+// CERTIFICATIONS TOGGLE
+// ===================================
+
+const toggleCertBtn = document.getElementById('toggleCertifications');
+const moreCerts = document.getElementById('moreCertifications');
+const toggleText = document.getElementById('toggleCertText');
+const toggleCount = document.getElementById('toggleCertCount');
+const toggleIcon = document.getElementById('toggleCertIcon');
+
+if (toggleCertBtn && moreCerts) {
+  toggleCertBtn.addEventListener('click', () => {
+    const isHidden = moreCerts.classList.contains('hidden');
+
+    if (isHidden) {
+      // Show more certifications
+      moreCerts.classList.remove('hidden');
+      toggleText.textContent = 'Ver menos certificaciones';
+      toggleCount.textContent = '(-6)';
+      toggleIcon.style.transform = 'rotate(180deg)';
+    } else {
+      // Hide certifications
+      moreCerts.classList.add('hidden');
+      toggleText.textContent = 'Ver más certificaciones';
+      toggleCount.textContent = '(+6)';
+      toggleIcon.style.transform = 'rotate(0deg)';
+    }
+  });
+}
+
+// ===================================
 // UTILITIES
 // ===================================
 
