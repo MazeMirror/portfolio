@@ -115,7 +115,7 @@ function createTestimonialSlide(testimonial) {
       <div class="text-4xl text-accent-purple mb-6">"</div>
       
       <!-- Testimonial Text -->
-      <p class="text-gray-300 text-lg mb-8 flex-grow leading-relaxed">
+      <p class="text-gray-300 text-base mb-8 flex-grow leading-relaxed">
         ${testimonial.text}
       </p>
       

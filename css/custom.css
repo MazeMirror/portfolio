@@ -182,6 +182,7 @@
             var(--color-accent-cyan),
             transparent);
     transform: translateX(-50%);
+    z-index: 0;
 }
 
 .timeline-dot {
@@ -299,10 +300,14 @@
 @media (max-width: 768px) {
     .timeline-line {
         left: 20px;
+        transform: none;
+        display: block;
+        z-index: 0;
     }
 
     .timeline-dot {
         left: 20px;
+        transform: none;
     }
 }
 
