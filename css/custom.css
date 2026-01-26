@@ -299,15 +299,16 @@
 /* Mobile Timeline */
 @media (max-width: 768px) {
     .timeline-line {
-        left: 20px;
-        transform: none;
+        left: 28px;
+        /* 20px + 8px (half of dot width 16px) to center with dot */
+        transform: translateX(-50%);
         display: block;
         z-index: 0;
     }
 
     .timeline-dot {
         left: 20px;
-        transform: none;
+        transform: translateX(0);
     }
 }
 
