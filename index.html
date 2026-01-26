@@ -34,6 +34,30 @@
             gtag('config', gaId);
         }
     </script>
+
+    <!-- Microsoft Clarity - Auto-detect environment -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            // Detect deployment environment
+            const hostname = window.location.hostname;
+            let clarityId;
+
+            if (hostname.includes('netlify.app')) {
+                // Netlify deployment
+                clarityId = 'v7obr4pt2r';
+            } else if (hostname.includes('github.io')) {
+                // GitHub Pages deployment
+                clarityId = 'v7oaznukjq';
+            }
+
+            // Load Clarity if we have an ID (skip for localhost)
+            if (clarityId) {
+                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + clarityId;
+                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+            }
+        })(window, document, "clarity", "script");
+    </script>
     <meta name="description"
         content="Alejandro Espejo - Portfolio de diseñador UX/UI, Product Owner y Project Manager con más de 5 años de experiencia diseñando y gestionando productos tecnológicos y digitales">
     <meta name="keywords"
