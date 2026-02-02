@@ -1,0 +1,122 @@
+/* ===================================
+   ACCESSIBILITY IMPROVEMENTS
+   =================================== */
+
+/* Focus States for Keyboard Navigation - WCAG AAA */
+.nav-link:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+    border-radius: 4px;
+}
+
+/* Remove default outline and use custom */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+}
+
+/* ===================================
+   MOBILE UX IMPROVEMENTS
+   =================================== */
+
+/* Touch Targets - Minimum 44x44px per iOS/Android guidelines */
+@media (max-width: 768px) {
+
+    .nav-link,
+    .social-icon,
+    button,
+    a.glass {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mobile Form Optimization */
+    input,
+    textarea,
+    select {
+        padding: 16px !important;
+        font-size: 16px !important;
+        min-height: 48px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    /* Touch Feedback */
+    .glass-hover:active,
+    button:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ===================================
+   LOADING STATES
+   =================================== */
+
+/* Spinner Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Button Loading State */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading .btn-text {
+    opacity: 0;
+}
+
+.btn-loading .btn-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form Success/Error States */
+.form-success {
+    border-color: var(--color-accent-green) !important;
+}
+
+.form-error {
+    border-color: #ef4444 !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}

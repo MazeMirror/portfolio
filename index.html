@@ -120,9 +120,12 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <ul class="hidden md:flex space-x-8 text-lg">
+                <ul class="hidden md:flex items-center space-x-8">
                     <li><a href="#home"
                             class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Inicio</a>
+                    </li>
+                    <li><a href="#about"
+                            class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Sobre mí</a>
                     </li>
                     <li><a href="#experience"
                             class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Experiencia</a>
@@ -156,6 +159,10 @@
                 <li><a href="#home"
                         class="mobile-nav-link block text-gray-400 hover:text-white transition-colors duration-300">Inicio</a>
                 </li>
+                <li><a href="#about"
+                        class="mobile-nav-link block text-gray-400 hover:text-white transition-colors duration-300">Sobre
+                        mí</a>
+                </li>
                 <li><a href="#experience"
                         class="mobile-nav-link block text-gray-400 hover:text-white transition-colors duration-300">Experiencia</a>
                 </li>
@@ -176,7 +183,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" class="hero-bg py-16 md:py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
                 <!-- Profile Photo -->
@@ -265,6 +272,167 @@
         </div>
     </section>
 
+    <!-- About Me Section -->
+    <section id="about" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-purple/20 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                    Más que un diseñador
+                </h2>
+                <p class="text-xl text-gray-400">
+                    Soy quien convierte problemas complejos en experiencias simples
+                </p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <!-- Left: Image -->
+                <div class="scroll-reveal">
+                    <div class="relative group max-h-[600px]">
+                        <!-- Gradient border effect - more subtle -->
+                        <div
+                            class="absolute -inset-0.5 bg-gradient-to-r from-accent-purple via-accent-blue to-accent-cyan rounded-2xl blur-md opacity-40 group-hover:opacity-60 transition duration-1000">
+                        </div>
+                        <!-- Direct image without glass background -->
+                        <div class="relative rounded-2xl overflow-hidden border-2 border-white/10">
+                            <img src="images/profile/alejandroespejo.jpg"
+                                alt="Alejandro Espejo - Product Owner y Diseñador UX/UI con más de 5 años de experiencia"
+                                class="w-full h-auto max-h-[560px] object-cover object-center" loading="lazy">
+                        </div>
+                        <!-- Opaque badge with high contrast number -->
+                        <div
+                            class="absolute -bottom-4 -right-4 px-8 py-4 rounded-full border-2 border-accent-purple bg-gradient-to-r from-purple-900 to-purple-800 shadow-2xl">
+                            <p class="text-base font-bold text-white">
+                                <span class="text-cyan-300 text-xl font-extrabold">+5</span> años de experiencia
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="space-y-6 scroll-reveal">
+                    <div
+                        class="glass p-8 rounded-2xl border border-white/10 hover:border-accent-purple hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] transition-all duration-300">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="text-3xl">🎯</span>
+                            Mi enfoque
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Diseño productos <strong class="text-white">como compongo música</strong>: escuchando
+                            primero, encontrando el ritmo correcto y ajustando cada detalle hasta que todo fluye.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            No creo en "diseño bonito sin impacto". Creo en <strong class="text-white">soluciones
+                                respaldadas</strong> por research, data y métricas reales (CSAT, NPS, conversión).
+                        </p>
+                        <p class="text-gray-400 text-sm italic">
+                            "¿Qué problema estamos resolviendo realmente?"
+                        </p>
+                    </div>
+
+                    <div
+                        class="glass p-8 rounded-2xl border border-white/10 hover:border-accent-blue hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-300">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="text-3xl">⚡</span>
+                            Especializado en
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-purple/30 hover:border-accent-purple hover:scale-105 transition-all cursor-default">
+                                UX Research
+                            </span>
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-blue/30 hover:border-accent-blue hover:scale-105 transition-all cursor-default">
+                                Product Design
+                            </span>
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-cyan/30 hover:border-accent-cyan hover:scale-105 transition-all cursor-default">
+                                Growth Design
+                            </span>
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-green/30 hover:border-accent-green hover:scale-105 transition-all cursor-default">
+                                IoT & HealthTech
+                            </span>
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-purple/30 hover:border-accent-purple hover:scale-105 transition-all cursor-default">
+                                E-commerce
+                            </span>
+                            <span
+                                class="px-4 py-2 glass-hover rounded-full text-sm font-semibold border border-accent-blue/30 hover:border-accent-blue hover:scale-105 transition-all cursor-default">
+                                Project Management
+                            </span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass p-8 rounded-2xl border border-white/10 hover:border-accent-cyan hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-300">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                            <span class="text-3xl">🎸</span>
+                            Más allá del diseño
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed mb-3">
+                            <strong class="text-white">Músico y compositor</strong> desde los 13 años. De rock latino a
+                            EDM, la música me enseñó sobre flujo, estructura y emoción.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            <strong class="text-white">Viajero curioso</strong> que explora rutas fuera del mapa. Todo
+                            lo que descubro vuelve a lo que diseño.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 scroll-reveal">
+                <div
+                    class="glass p-6 rounded-2xl text-center border border-white/10 hover:border-accent-purple hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                        <span class="stat-counter" data-target="30">0</span>+
+                    </div>
+                    <p class="text-gray-300 text-sm">Proyectos completados</p>
+                </div>
+                <div
+                    class="glass p-6 rounded-2xl text-center border border-white/10 hover:border-accent-blue hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                        <span class="stat-counter" data-target="15">0</span>+
+                    </div>
+                    <p class="text-gray-300 text-sm">Equipos impactados</p>
+                </div>
+                <div
+                    class="glass p-6 rounded-2xl text-center border border-white/10 hover:border-accent-cyan hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                        <span class="stat-counter" data-target="4">0</span>.<span class="stat-counter"
+                            data-target="5">0</span> / 5
+                    </div>
+                    <p class="text-gray-300 text-sm">CSAT promedio</p>
+                </div>
+                <div
+                    class="glass p-6 rounded-2xl text-center border border-white/10 hover:border-accent-green hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                        +<span class="stat-counter" data-target="220">0</span>%
+                    </div>
+                    <p class="text-gray-300 text-sm">Crecimiento en productos digitales</p>
+                </div>
+            </div>
+
+            <!-- Philosophy Quote - Full width of stats -->
+            <div class="mt-16 scroll-reveal">
+                <div class="glass p-8 md:p-12 rounded-2xl border border-white/10 text-center">
+                    <div class="text-3xl mb-4">💭</div>
+                    <blockquote class="text-xl md:text-2xl font-semibold gradient-text leading-relaxed mb-4">
+                        "Un buen producto, como una buena canción, no se explica: se siente."
+                    </blockquote>
+                    <p class="text-gray-300">
+                        Si el ritmo es correcto, el usuario se queda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Timeline -->
     <section id="experience" class="py-16 md:py-24 bg-secondary relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -306,11 +474,11 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (Rebuilt) -->
     <section id="projects" class="py-16 md:py-24 bg-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Title -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 scroll-reveal">
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
                     <span class="gradient-text">Proyectos Destacados</span>
                 </h2>
@@ -320,151 +488,36 @@
                 <div class="w-20 h-1 bg-gradient-to-r from-accent-purple to-accent-cyan mx-auto mt-4 rounded-full">
                 </div>
             </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="1">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project1.jpg" alt="App de Banca Móvil"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-purple/30 text-purple-400 font-semibold">UX/UI
-                                Design</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-blue/30 text-blue-400 font-semibold">Mobile
-                                App</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">App de Banca Móvil</h3>
-                        <p class="text-gray-400 text-sm">
-                            Rediseño completo de la experiencia de usuario para una aplicación bancaria, mejorando la
-                            tasa de conversión en un 45%.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="2">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project2.jpg" alt="E-commerce Platform"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-purple/30 text-purple-400 font-semibold">Product
-                                Design</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-cyan/30 text-cyan-400 font-semibold">E-commerce</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Plataforma E-commerce</h3>
-                        <p class="text-gray-400 text-sm">
-                            Diseño y estrategia de producto para una plataforma de comercio electrónico con enfoque en
-                            conversión.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="3">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project3.jpg" alt="Dashboard Analytics"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-blue/30 text-blue-400 font-semibold">Dashboard</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-green/30 text-green-400 font-semibold">Data
-                                Viz</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Dashboard de Analíticas</h3>
-                        <p class="text-gray-400 text-sm">
-                            Sistema de visualización de datos complejos para equipos de marketing, simplificando la toma
-                            de decisiones.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="4">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project4.jpg" alt="Health & Fitness App"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-green/30 text-green-400 font-semibold">Mobile
-                                App</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-blue/30 text-blue-400 font-semibold">Health
-                                Tech</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">App de Salud y Fitness</h3>
-                        <p class="text-gray-400 text-sm">
-                            Aplicación mobile para tracking de hábitos saludables con gamificación y comunidad
-                            integrada.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="5">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project5.jpg" alt="SaaS Platform"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-purple/30 text-purple-400 font-semibold">SaaS</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-blue/30 text-blue-400 font-semibold">B2B</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Plataforma SaaS</h3>
-                        <p class="text-gray-400 text-sm">
-                            Diseño de sistema end-to-end para herramienta de gestión de proyectos orientada a equipos
-                            remotos.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="glass glass-hover rounded-2xl overflow-hidden cursor-pointer scroll-reveal"
-                    data-project="6">
-                    <div class="h-64 overflow-hidden">
-                        <img src="images/projects/project6.jpg" alt="Design System"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-cyan/30 text-cyan-400 font-semibold">Design
-                                System</span>
-                            <span
-                                class="px-3 py-1 text-xs rounded-full glass border border-accent-purple/30 text-purple-400 font-semibold">UI
-                                Kit</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Sistema de Diseño</h3>
-                        <p class="text-gray-400 text-sm">
-                            Creación de design system escalable con componentes reutilizables para acelerar el
-                            desarrollo.
-                        </p>
-                    </div>
-                </div>
+            <!-- Filter Buttons (Generated by JS) -->
+            <div id="projectFilters" class="flex flex-wrap justify-center gap-3 mb-12 scroll-reveal">
+                <!-- Filters generated dynamically -->
+            </div>
+            <!-- Projects Grid (Generated by JS) -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Project cards generated dynamically -->
+            </div>
+            <!-- Load More Button -->
+            <div class="text-center scroll-reveal">
+                <button id="loadMoreBtn"
+                    class="px-8 py-3 glass glass-hover rounded-full border border-accent-purple/50 text-white font-semibold transition-all duration-300 hover:border-accent-purple hover:bg-accent-purple/10">
+                    Ver más proyectos (6)
+                </button>
             </div>
         </div>
     </section>
+    <!-- Project Modal (Rebuilt) -->
+    <div id="projectModal"
+        class="modal hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 items-center justify-center p-4">
+        <div class="glass rounded-2xl max-w-4xl w-full max-h-[90vh] relative flex flex-col">
+            <!-- Fixed Header (will be populated by JS) -->
+            <div id="modal-header" class="flex-shrink-0"></div>
+
+            <!-- Scrollable Content Area -->
+            <div id="modal-body" class="overflow-y-auto px-8 pt-6 pb-8 flex-1">
+                <!-- Modal content generated by JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Education & Certifications -->
     <section id="education" class="py-16 md:py-24 bg-secondary">
@@ -966,8 +1019,11 @@
         </div>
     </div>
 
-    <!-- Main Scripts -->
+    <!-- Custom Components (Carousel & Timeline) -->
     <script src="js/components.js"></script>
+    <!-- Projects Section (Rebuilt) -->
+    <script src="js/projects.js"></script>
+    <!-- Custom Scripts -->
     <script src="js/main.js"></script>
 </body>
 

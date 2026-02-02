@@ -18,6 +18,14 @@
     --color-accent-cyan: #06b6d4;
     --color-accent-green: #10b981;
 
+    /* Text Colors - WCAG AA Compliant */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #e5e7eb;
+    /* Improved from gray-300 */
+    --color-text-tertiary: #d1d5db;
+    /* Improved from gray-400 */
+    --color-text-muted: #9ca3af;
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
@@ -29,6 +37,10 @@
     /* Shadows */
     --shadow-glow: 0 0 30px rgba(102, 126, 234, 0.3);
     --shadow-glow-lg: 0 0 50px rgba(102, 126, 234, 0.4);
+
+    /* Focus Outline */
+    --focus-ring: 2px solid var(--color-accent-purple);
+    --focus-offset: 2px;
 }
 
 /* ===================================
@@ -373,18 +385,6 @@
 
 .carousel-button-next {
     right: 10px;
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-}
-
-.carousel-indicator {
-    width: 8px;
-    height: 8px;
     border-radius: 50%;
     background: var(--glass-border);
     cursor: pointer;
@@ -551,4 +551,211 @@
 
 .animate-modal {
     animation: modalEnter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===================================
+   PROJECT FILTER BUTTONS
+   =================================== */
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #9ca3af;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    border-color: #a855f7;
+    color: #a855f7;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: #a855f7;
+    color: #a855f7;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* ===================================
+   ACCESSIBILITY IMPROVEMENTS
+   =================================== */
+
+/* Focus States for Keyboard Navigation - WCAG AAA */
+.nav-link:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+    border-radius: 4px;
+}
+
+/* Remove default outline and use custom */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+}
+
+/* ===================================
+   MOBILE UX IMPROVEMENTS
+   =================================== */
+
+/* Touch Targets - Minimum 44x44px per iOS/Android guidelines */
+@media (max-width: 768px) {
+
+    .nav-link,
+    .social-icon,
+    button,
+    a.glass {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mobile Form Optimization */
+    input,
+    textarea,
+    select {
+        padding: 16px !important;
+        font-size: 16px !important;
+        min-height: 48px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    /* Touch Feedback */
+    .glass-hover:active,
+    button:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* ===================================
+   LOADING STATES
+   =================================== */
+
+/* Spinner Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* Button Loading State */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading .btn-text {
+    opacity: 0;
+}
+
+.btn-loading .btn-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form Success/Error States */
+.form-success {
+    border-color: var(--color-accent-green) !important;
+}
+
+.form-error {
+    border-color: #ef4444 !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* ===================================
+   ACTIVE NAVIGATION STATE
+   =================================== */
+
+.nav-link.active {
+    color: var(--color-accent-cyan);
+    /* Cyan for better contrast */
+    font-weight: 600;
+}
+
+/* Mobile nav link active state */
+.mobile-nav-link.active {
+    color: var(--color-accent-cyan);
+    border-left: 3px solid var(--color-accent-cyan);
+    font-weight: 600;
+}
+
+/* ===================================
+   MODAL ANIMATIONS
+   =================================== */
+
+/* Fade in animation for modal overlay */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scale in animation for modal content */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Apply animations to modal */
+.modal-overlay {
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay>div {
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }

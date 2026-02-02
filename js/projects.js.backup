@@ -1,0 +1,657 @@
+// ===================================
+// PROJECTS SECTION - REBUILT
+// Data + UI + Controller with Event Delegation
+// ===================================
+
+// ===================================
+// 1. DUMMY PROJECT DATA (9 projects)
+// ===================================
+
+const PROJECTS = [
+    {
+        id: 1,
+        title: "Project Alpha - Mobile App",
+        shortDesc: "Innovative mobile solution for modern users with seamless UX.",
+        tags: ["UX/UI Design", "Mobile App", "Research"],
+        image: "images/projects/project1.png",
+        details: {
+            overview: "Comprehensive mobile application redesign focusing on user experience and engagement metrics. Achieved significant improvements in user satisfaction.",
+            role: "Lead UX/UI Designer",
+            responsibilities: [
+                "User research and interviews",
+                "Wireframing and prototyping",
+                "Visual design and design system",
+                "User testing and iteration"
+            ],
+            results: [
+                "CSAT: 4.8/5",
+                "NPS: +45",
+                "Daily active users increased by 120%"
+            ]
+        },
+        link: "https://example.com/alpha"
+    },
+    {
+        id: 2,
+        title: "Project Beta - E-commerce Platform",
+        shortDesc: "Complete e-commerce redesign driving 200% growth in conversions.",
+        tags: ["UX/UI Design", "E-commerce", "Growth"],
+        image: "images/projects/project2.png",
+        details: {
+            overview: "Strategic redesign of e-commerce platform using AIDA model and conversion optimization techniques. Focus on reducing friction in checkout flow.",
+            role: "Product Designer & Growth Lead",
+            responsibilities: [
+                "Competitive analysis",
+                "Conversion funnel optimization",
+                "A/B testing implementation",
+                "Analytics setup and monitoring"
+            ],
+            results: [
+                "Conversion rate: +200%",
+                "Cart abandonment: -45%",
+                "Average order value: +35%"
+            ]
+        },
+        link: "https://example.com/beta"
+    },
+    {
+        id: 3,
+        title: "Project Gamma - Healthcare IoT",
+        shortDesc: "IoT-based health monitoring system validated by scientific research.",
+        tags: ["IoT", "HealthTech", "Research", "UX/UI Design"],
+        image: "images/projects/project3.png",
+        details: {
+            overview: "End-to-end IoT healthcare solution including wearable device, mobile app, and analytics dashboard. Published research paper in international conference.",
+            role: "Full Stack Designer & Developer",
+            responsibilities: [
+                "Scientific research and literature review",
+                "Hardware-software integration design",
+                "Mobile app development (Flutter)",
+                "Data visualization dashboard"
+            ],
+            results: [
+                "Accuracy: 98.5%",
+                "User satisfaction: 96%",
+                "Published in Springer CCIS"
+            ]
+        },
+        link: null // No external link
+    },
+    {
+        id: 4,
+        title: "Project Delta - Web Platform",
+        shortDesc: "Modern web platform with innovative design and top-tier UX.",
+        tags: ["Web Design", "UX/UI Design", "Project Management"],
+        image: "images/projects/project4.png",
+        details: {
+            overview: "Corporate web platform redesign focusing on accessibility, performance, and modern design patterns. Implemented comprehensive design system.",
+            role: "Project Manager & Lead Designer",
+            responsibilities: [
+                "Stakeholder interviews and alignment",
+                "Information architecture redesign",
+                "Design system creation",
+                "Developer handoff and QA"
+            ],
+            results: [
+                "Page load time: -60%",
+                "Accessibility score: 95/100",
+                "User engagement: +85%"
+            ]
+        },
+        link: "https://example.com/delta"
+    },
+    {
+        id: 5,
+        title: "Project Epsilon - SaaS Dashboard",
+        shortDesc: "Data-rich SaaS dashboard with intuitive interactions and insights.",
+        tags: ["UX/UI Design", "SaaS", "Data Visualization"],
+        image: "images/projects/project5.png",
+        details: {
+            overview: "Complex SaaS dashboard simplification through user-centered design and progressive disclosure principles. Focus on making data actionable.",
+            role: "Senior Product Designer",
+            responsibilities: [
+                "User flow mapping",
+                "Data visualization strategy",
+                "Interactive prototyping",
+                "Usability testing"
+            ],
+            results: [
+                "Time to insight: -70%",
+                "Feature adoption: +150%",
+                "Support tickets: -40%"
+            ]
+        },
+        link: null
+    },
+    {
+        id: 6,
+        title: "Project Zeta - Mobile Banking",
+        shortDesc: "Secure and user-friendly mobile banking experience redesign.",
+        tags: ["Mobile App", "FinTech", "UX/UI Design"],
+        image: "images/projects/project6.png",
+        details: {
+            overview: "Mobile banking app redesign balancing security requirements with exceptional user experience. Implemented biometric authentication and streamlined flows.",
+            role: "UX/UI Designer",
+            responsibilities: [
+                "Security UX patterns research",
+                "Transaction flow optimization",
+                "Visual identity refresh",
+                "Usability and security testing"
+            ],
+            results: [
+                "Transaction completion rate: +55%",
+                "Security incidents: 0",
+                "App Store rating: 4.7/5"
+            ]
+        },
+        link: "https://example.com/zeta"
+    },
+    {
+        id: 7,
+        title: "Project Eta - Travel Platform",
+        shortDesc: "Travel booking platform with seamless multi-device experience.",
+        tags: ["Web Design", "UX/UI Design", "E-commerce"],
+        image: "images/projects/project7.png",
+        details: {
+            overview: "Multi-platform travel booking system with focus on inspiration, discovery, and frictionless booking. Responsive design across all devices.",
+            role: "Product Designer",
+            responsibilities: [
+                "User journey mapping",
+                "Responsive design implementation",
+                "Search and filter UX optimization",
+                "Payment flow streamlining"
+            ],
+            results: [
+                "Booking completion: +90%",
+                "Mobile conversions: +120%",
+                "Customer retention: +65%"
+            ]
+        },
+        link: "https://example.com/eta"
+    },
+    {
+        id: 8,
+        title: "Project Theta - HR Management",
+        shortDesc: "Complete HR platform transformation for modern workforce management.",
+        tags: ["Web Design", "HR Tech", "Project Management"],
+        image: "images/projects/project8.png",
+        details: {
+            overview: "Enterprise HR management system redesign focusing on employee experience and administrative efficiency. ATS migration and onboarding optimization.",
+            role: "Product Owner & UX Lead",
+            responsibilities: [
+                "Stakeholder management (20+ departments)",
+                "Platform migration strategy",
+                "Process optimization",
+                "Change management"
+            ],
+            results: [
+                "Time to hire: -35%",
+                "Admin time saved: 49%",
+                "Employee satisfaction: 4.5/5"
+            ]
+        },
+        link: null
+    },
+    {
+        id: 9,
+        title: "Project Iota - Design System",
+        shortDesc: "Comprehensive design system for enterprise product ecosystem.",
+        tags: ["Design Systems", "UX/UI Design", "Web Design"],
+        image: "images/projects/project9.png",
+        details: {
+            overview: "Enterprise-scale design system creation unifying 12 product lines. Component library, documentation, and governance model.",
+            role: "Design Systems Lead",
+            responsibilities: [
+                "Component architecture",
+                "Token system design",
+                "Documentation and guidelines",
+                "Cross-team collaboration"
+            ],
+            results: [
+                "Design-dev handoff time: -80%",
+                "UI consistency: 95%",
+                "12 products unified"
+            ]
+        },
+        link: "https://example.com/iota"
+    }
+];
+
+// ===================================
+// 2. STATE MANAGEMENT
+// ===================================
+
+const state = {
+    activeFilter: 'all',
+    showingAll: false,
+    isMobile: window.innerWidth < 768
+};
+
+// ===================================
+// 3. UI RENDERING FUNCTIONS
+// ===================================
+
+function createProjectCard(project) {
+    const card = document.createElement('div');
+    card.className = 'project-card glass glass-hover rounded-2xl overflow-hidden cursor-pointer';
+    card.dataset.projectId = project.id;
+    card.dataset.tags = project.tags.join(',');
+
+    // Function to get color class based on tag
+    const getTagColor = (tag) => {
+        const tagLower = tag.toLowerCase();
+        if (tagLower.includes('ux') || tagLower.includes('ui') || tagLower.includes('design system')) {
+            return 'border-accent-purple/30 text-purple-400';
+        } else if (tagLower.includes('mobile') || tagLower.includes('web') || tagLower.includes('fintech') || tagLower.includes('saas')) {
+            return 'border-accent-blue/30 text-blue-400';
+        } else if (tagLower.includes('commerce') || tagLower.includes('growth') || tagLower.includes('data')) {
+            return 'border-accent-cyan/30 text-cyan-400';
+        } else if (tagLower.includes('iot') || tagLower.includes('health') || tagLower.includes('hr')) {
+            return 'border-accent-green/30 text-green-400';
+        }
+        return 'border-accent-purple/30 text-purple-400'; // default
+    };
+
+    card.innerHTML = `
+    <div class="h-64 overflow-hidden">
+      <img src="${project.image}" alt="${project.title}" 
+           class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+           onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23334155%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23cbd5e1%22 font-family=%22Arial%22 font-size=%2220%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EProject ${project.id}%3C/text%3E%3C/svg%3E'">
+    </div>
+    <div class="p-6">
+      <div class="flex flex-wrap gap-2 mb-3">
+        ${project.tags.slice(0, 2).map(tag => `
+          <span class="px-3 py-1 text-xs rounded-full glass border ${getTagColor(tag)} font-semibold">
+            ${tag}
+          </span>
+        `).join('')}
+      </div>
+      <h3 class="text-xl font-bold mb-2">${project.title.split(' - ')[1] || project.title}</h3>
+      <p class="text-gray-400 text-sm">${project.shortDesc}</p>
+    </div>
+  `;
+
+    return card;
+}
+
+function renderProjects() {
+    const grid = document.getElementById('projectsGrid');
+    console.log('🎨 renderProjects() called');
+    console.log('📦 Grid element:', grid);
+
+    if (!grid) {
+        console.error('❌ Grid not found!');
+        return;
+    }
+
+    grid.innerHTML = '';
+
+    const filteredProjects = state.activeFilter === 'all'
+        ? PROJECTS
+        : PROJECTS.filter(p => p.tags.includes(state.activeFilter));
+
+    console.log(`🔍 Filtered projects (filter="${state.activeFilter}"):`, filteredProjects.length);
+
+    const visibleCount = state.showingAll
+        ? filteredProjects.length
+        : (state.isMobile ? 3 : 6);
+
+    console.log(`👁️ Visible count: ${visibleCount} (isMobile: ${state.isMobile}, showingAll: ${state.showingAll})`);
+
+    filteredProjects.forEach((project, index) => {
+        const card = createProjectCard(project);
+        console.log(`🃏 Card ${index + 1}/${filteredProjects.length} created for "${project.title}"`, {
+            hidden: index >= visibleCount,
+            display: index >= visibleCount ? 'none' : 'block'
+        });
+
+        // Show or hide based on visibleCount
+        if (index >= visibleCount) {
+            card.style.display = 'none';
+            card.dataset.hidden = 'true';
+        } else {
+            card.style.display = ''; // Ensure visible cards are shown
+            card.dataset.hidden = 'false';
+        }
+        grid.appendChild(card);
+    });
+
+    console.log(`✅ ${filteredProjects.length} cards appended to grid`);
+    console.log('📊 Grid children count:', grid.children.length);
+
+    updateLoadMoreButton(filteredProjects.length, visibleCount);
+}
+
+function renderModal(project) {
+    const modal = document.getElementById('projectModal');
+    const modalContent = modal.querySelector('.modal-content');
+
+    // Function to get color class based on tag
+    const getTagColor = (tag) => {
+        const tagLower = tag.toLowerCase();
+        if (tagLower.includes('ux') || tagLower.includes('ui') || tagLower.includes('design system')) {
+            return 'border-accent-purple/30 text-purple-400';
+        } else if (tagLower.includes('mobile') || tagLower.includes('web') || tagLower.includes('fintech') || tagLower.includes('saas')) {
+            return 'border-accent-blue/30 text-blue-400';
+        } else if (tagLower.includes('commerce') || tagLower.includes('growth') || tagLower.includes('data')) {
+            return 'border-accent-cyan/30 text-cyan-400';
+        } else if (tagLower.includes('iot') || tagLower.includes('health') || tagLower.includes('hr')) {
+            return 'border-accent-green/30 text-green-400';
+        }
+        return 'border-accent-purple/30 text-purple-400';
+    };
+
+    modalContent.innerHTML = `
+    <!-- Close Button (top right) -->
+    <div class="flex justify-end mb-4">
+      <button id="modalClose" class="text-gray-400 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Project Image (max height 400px) -->
+    <div class="mb-6">
+      <img src="${project.image}" alt="${project.title}" 
+           class="w-full rounded-xl shadow-2xl"
+           style="max-height: 400px; object-fit: cover;"
+           onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22%3E%3Crect fill=%22%23334155%22 width=%22800%22 height=%22400%22/%3E%3Ctext fill=%22%23cbd5e1%22 font-family=%22Arial%22 font-size=%2240%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E${project.title}%3C/text%3E%3C/svg%3E'">
+    </div>
+    
+    <!-- Title (h2 size, not huge) -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">${project.title}</h2>
+    
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      ${project.tags.map(tag => `
+        <span class="px-3 py-1 text-sm rounded-full glass border ${getTagColor(tag)} font-semibold">
+          ${tag}
+        </span>
+      `).join('')}
+    </div>
+    
+    <!-- Short Description -->
+    <p class="text-gray-300 mb-8 leading-relaxed">${project.shortDesc}</p>
+    
+    <!-- Descripción del Proyecto Section -->
+    <div class="mb-6">
+      <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
+        <span>📋</span> Descripción del Proyecto
+      </h3>
+      <p class="text-gray-300 leading-relaxed">${project.details.overview}</p>
+    </div>
+    
+    <!-- Mi Rol Section -->
+    <div class="mb-6">
+      <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
+        <span>🎯</span> Mi Rol
+      </h3>
+      <p class="font-semibold text-gray-200 mb-3">${project.details.role}</p>
+      <ul class="list-disc list-inside space-y-1 text-gray-300">
+        ${project.details.responsibilities.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <!-- Resultados Section -->
+    <div class="mb-6">
+      <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
+        <span>✨</span> Resultados
+      </h3>
+      <ul class="list-disc list-inside space-y-1 text-gray-300">
+        ${project.details.results.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <!-- Ver Proyecto Button (always show if link exists) -->
+    ${project.link ? `
+      <div class="mt-8 flex justify-center">
+        <a href="${project.link}" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-accent-purple to-accent-blue text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          Ver proyecto
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    ` : ''}
+  `;
+}
+
+function updateLoadMoreButton(totalCount, visibleCount) {
+    const btn = document.getElementById('loadMoreBtn');
+    if (!btn) {
+        console.error('❌ Load More button not found in DOM');
+        return;
+    }
+
+    const hiddenCount = totalCount - visibleCount;
+
+    console.log('🔘 updateLoadMoreButton called:', {
+        totalCount,
+        visibleCount,
+        hiddenCount,
+        showingAll: state.showingAll
+    });
+
+    // If there are no projects at all, hide button
+    if (totalCount === 0) {
+        btn.style.display = 'none';
+        console.log('⚠️ No projects, hiding button');
+        return;
+    }
+
+    // If showing all projects, show "Ver menos"
+    if (state.showingAll) {
+        btn.style.display = '';
+        btn.textContent = 'Ver menos proyectos';
+        console.log('✅ Showing "Ver menos"');
+        return;
+    }
+
+    // If there are hidden projects, show "Ver más (N)"
+    if (hiddenCount > 0) {
+        btn.style.display = '';
+        btn.textContent = `Ver más proyectos (${hiddenCount})`;
+        console.log(`✅ Showing "Ver más (${hiddenCount})"`);
+        return;
+    }
+
+    // If no hidden projects and not showing all, hide button
+    btn.style.display = 'none';
+    console.log('⚠️ No hidden projects, hiding button');
+}
+
+function generateFilters() {
+    const filterContainer = document.getElementById('projectFilters');
+    if (!filterContainer) return;
+
+    // Get unique tags
+    const allTags = new Set();
+    PROJECTS.forEach(p => p.tags.forEach(tag => allTags.add(tag)));
+
+    const filters = ['all', ...Array.from(allTags).sort()];
+
+    filterContainer.innerHTML = filters.map(filter => `
+    <button class="filter-btn ${filter === 'all' ? 'active' : ''}" data-filter="${filter}">
+      ${filter === 'all' ? 'Todos' : filter}
+    </button>
+  `).join('');
+}
+
+// ===================================
+// 4. EVENT HANDLERS
+// ===================================
+
+function initEventListeners() {
+    const grid = document.getElementById('projectsGrid');
+    const modal = document.getElementById('projectModal');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const filterContainer = document.getElementById('projectFilters');
+
+    // Event delegation for project cards
+    if (grid) {
+        grid.addEventListener('click', (e) => {
+            const card = e.target.closest('.project-card');
+            if (!card) return;
+
+            const projectId = parseInt(card.dataset.projectId);
+            const project = PROJECTS.find(p => p.id === projectId);
+
+            if (project) {
+                renderModal(project);
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+
+    // Modal close
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.closest('#modalClose')) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Load More toggle
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            state.showingAll = !state.showingAll;
+            renderProjects();
+        });
+    }
+
+    // Filter buttons
+    if (filterContainer) {
+        filterContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+
+            // Update active state
+            filterContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update filter and re-render
+            state.activeFilter = btn.dataset.filter;
+            state.showingAll = false; // Reset to initial view
+            renderProjects();
+        });
+    }
+
+    // Responsive behavior
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const wasMobile = state.isMobile;
+            state.isMobile = window.innerWidth < 768;
+
+            // Only re-render if breakpoint changed
+            if (wasMobile !== state.isMobile) {
+                renderProjects();
+            }
+        }, 250);
+    });
+}
+
+// ===================================
+// 5. INITIALIZATION
+// ===================================
+
+function initProjects() {
+    generateFilters();
+    renderProjects();
+    initEventListeners();
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjects);
+} else {
+    initProjects();
+}
+
+panel.className = 'fixed top-4 right-4 bg-black/90 text-white p-4 rounded-lg z-[9999] max-w-md text-xs font-mono';
+panel.innerHTML = `
+        <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-sm">🐛 Debug Panel</h3>
+            <button onclick="this.parentElement.parentElement.remove()" class="text-red-400 hover:text-red-300">✕</button>
+        </div>
+        <div id="debugInfo"></div>
+    `;
+document.body.appendChild(panel);
+
+function updateDebugInfo() {
+    const btn = document.getElementById('loadMoreBtn');
+    const grid = document.getElementById('projectsGrid');
+    const filters = document.getElementById('projectFilters');
+
+    const info = `
+            <div class="space-y-1">
+                <div>📊 Projects: ${PROJECTS.length}</div>
+                <div>🔍 Filter: ${state.activeFilter}</div>
+                <div>👁️ Showing All: ${state.showingAll}</div>
+                <div>📱 Is Mobile: ${state.isMobile}</div>
+                <hr class="my-2 border-gray-700">
+                <div>📦 Grid: ${grid ? '✅ Found' : '❌ Missing'}</div>
+                <div>🎯 Filters: ${filters ? '✅ Found' : '❌ Missing'}</div>
+                <div>🔘 Load More Btn: ${btn ? '✅ Found' : '❌ Missing'}</div>
+                ${btn ? `
+                    <div class="ml-4">
+                        <div>Display: ${btn.style.display || 'default'}</div>
+                        <div>Text: ${btn.textContent}</div>
+                        <div>Visible: ${btn.offsetWidth > 0 ? '✅' : '❌'}</div>
+                    </div>
+                ` : ''}
+                ${grid ? `
+                    <div>Cards in Grid: ${grid.children.length}</div>
+                ` : ''}
+            </div>
+        `;
+    document.getElementById('debugInfo').innerHTML = info;
+}
+
+updateDebugInfo();
+// Update every 2 seconds
+setInterval(updateDebugInfo, 2000);
+}
+
+function initProjects() {
+    console.log('🔧 initProjects() called');
+    console.log('📊 PROJECTS array length:', PROJECTS.length);
+    console.log('🎯 Looking for #projectFilters:', document.getElementById('projectFilters'));
+    console.log('📦 Looking for #projectsGrid:', document.getElementById('projectsGrid'));
+    console.log('🔘 Looking for #loadMoreBtn:', document.getElementById('loadMoreBtn'));
+
+    generateFilters();
+    renderProjects();
+    initEventListeners();
+    console.log('✅ Projects section initialized with', PROJECTS.length, 'projects');
+
+    // Show debug panel after short delay to ensure everything is rendered
+    setTimeout(showDebugPanel, 500);
+}
+
+// Initialize when DOM is ready
+console.log('📄 projects.js loaded, document.readyState:', document.readyState);
+if (document.readyState === 'loading') {
+    console.log('⏳ DOM still loading, adding DOMContentLoaded listener');
+    document.addEventListener('DOMContentLoaded', initProjects);
+} else {
+    console.log('✅ DOM already loaded, initializing immediately');
+    initProjects();
+}
